@@ -1,6 +1,4 @@
 package devLauren.example.BoardJPA_v3.controller;
-
-import devLauren.example.BoardJPA_v3.domain.entity.Board;
 import devLauren.example.BoardJPA_v3.dto.BoardDto;
 import devLauren.example.BoardJPA_v3.service.BoardService;
 import org.springframework.ui.Model;
@@ -21,6 +19,11 @@ public class BoardController {
     public String list(Model model)
     {
         List<BoardDto> boardDtoList = boardService.getBoardList();
+        // View 에 데이터를 전달하기 위해(Java -> Json)
+        // 모델에 데이터를 담기 위해 .addAttribute()를 사용한다
+        /* .addAttribute(String name, Object value)
+        * value 객체를 'name' 이름으로 저장하고
+        * view 에서 name 을 사용해서 value를 사용한다*/
         model.addAttribute("postList", boardDtoList);
         return "board/list.html";
     }

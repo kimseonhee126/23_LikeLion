@@ -17,6 +17,7 @@ public class BoardDto {
     private LocalDateTime createdDate;
     private LocalDateTime modifiedDate;
 
+    // dto -> entity
     public Board toEntity()
     {
         Board build = Board.builder()
